@@ -42,7 +42,7 @@ var generators = {
 				})
 
 			_.each(options.files, function(file, idx) {
-				var glyph = fs.createReadStream(file)
+				var glyph = Buffer.from(file.content).toString('base64');
 				var name = options.names[idx]
 				var unicode = String.fromCharCode(options.codepoints[name])
                 var ligature = ''
