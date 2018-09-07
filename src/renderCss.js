@@ -1,5 +1,4 @@
 var fs = require('fs')
-var path = require('path')
 var crypto = require('crypto')
 var _ = require('underscore')
 var handlebars = require('handlebars')
@@ -9,7 +8,7 @@ var urlJoin = require('url-join')
 var calcHash = function(options) {
 	var hash = crypto.createHash('md5')
 	options.files.forEach(function(file) {
-		hash.update(fs.readFileSync(file, 'utf8'))
+		hash.update(Buffer.from(file.data, 'utf-8'));
 	})
 	hash.update(JSON.stringify(options))
 	return hash.digest('hex')
