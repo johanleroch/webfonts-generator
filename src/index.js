@@ -29,7 +29,8 @@ var DEFAULT_OPTIONS = {
 	types: ['eot', 'woff', 'woff2'],
 	order: ['eot', 'woff2', 'woff', 'ttf', 'svg'],
 	rename: function(file) {
-		return path.basename(file, path.extname(file))
+		return file.name;
+		// return path.basename(file, path.extname(file))
 	},
 	formatOptions: {},
 	/**
