@@ -102,12 +102,18 @@ var webfont = function(options, done) {
 			result.generateCss = function(urls) {
 				return renderCss(options, urls)
 			}
+
+			result.generateHtml = function() {
+				return renderHtml(options);
+			}
+
 			done(null, result)
 		})
 		.catch(function(err) { done(err) })
 }
 
 function writeFile(content, dest) {
+	console.log('WRITE FILE CONTENT', content);
 	mkdirp.sync(path.dirname(dest))
 	fs.writeFileSync(dest, content)
 }
